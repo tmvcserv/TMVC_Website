@@ -23,6 +23,8 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
+    <script src="main.js" defer></script>
+    <script src="contact.js" defer></script>
 </head>
 
 <body>
@@ -273,11 +275,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1.5rem;">
+                    <div class="logo">
                         <img src="images/TMVC_Logo.png" alt="天目科技">
                         <span>天目科技</span>
                     </div>
-                    <p style="color: var(--text-gray); max-width: 300px;">
+                    <p>
                         專注於為客戶提供最具競爭力的工業視覺解決方案。
                         <br><br>
                         您的品質，我們的堅持。
@@ -286,19 +288,19 @@
 
                 <div class="footer-col">
                     <h4>快速連結</h4>
-                    <ul style="line-height: 2.2;">
-                        <li><a href="index.html" style="color: var(--text-gray);">首頁</a></li>
-                        <li><a href="about.html" style="color: var(--text-gray);">關於我們</a></li>
-                        <li><a href="products.html" style="color: var(--text-gray);">產品介紹</a></li>
-                        <li><a href="support.html" style="color: var(--text-gray);">技術支援</a></li>
-                        <li><a href="downloads.html" style="color: var(--text-gray);">下載專區</a></li>
-                        <li><a href="contact.html" style="color: var(--text-gray);">客戶服務</a></li>
+                    <ul class="footer-links-grid">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="products.html">產品介紹</a></li>
+                        <li><a href="support.html">技術支援</a></li>
+                        <li><a href="downloads.html">下載專區</a></li>
+                        <li><a href="contact.html">客戶服務</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>服務時間</h4>
-                    <p style="color: var(--text-gray); line-height: 2;">
+                    <p>
                         週一至週五<br>
                         09:00 - 18:00<br>
                         (國定假日除外)
@@ -346,121 +348,6 @@
         </div>
     </footer>
 
-    <script>
-        // 主題切換邏輯
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            sessionStorage.setItem('theme', newTheme);
-        });
-
-        // 滾動行為邏輯 (Hide/Show Header)
-        const header = document.getElementById('mainHeader');
-        let lastScroll = 0;
-        const scrollThreshold = 100;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            // 處理 Header 隱藏/展開
-            if (currentScroll <= 0) {
-                header.classList.remove('header-hidden');
-                header.classList.remove('header-scrolled');
-                return;
-            }
-
-            if (currentScroll > scrollThreshold) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-
-            if (currentScroll > lastScroll && !document.body.classList.contains('nav-active')) {
-                // 向下滑動且選單沒開啟 = 隱藏
-                header.classList.add('header-hidden');
-            } else {
-                // 向上滑動 = 展開
-                header.classList.remove('header-hidden');
-            }
-            lastScroll = currentScroll;
-        });
-
-        // 行動版選單切換
-        const mobileNavToggle = document.getElementById('mobileNavToggle');
-        const navOverlay = document.getElementById('navOverlay');
-        const navLinks = document.querySelectorAll('#navMenu a');
-
-        const toggleNav = () => {
-            document.body.classList.toggle('nav-active');
-        };
-
-        mobileNavToggle.addEventListener('click', toggleNav);
-        navOverlay.addEventListener('click', toggleNav);
-
-        // 點擊連結後關閉選單
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                document.body.classList.remove('nav-active');
-            });
-        });
-
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-        const submitBtn = document.getElementById('submitBtn');
-
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-
-            // 表單已配置正確的接收信箱或 ID
-
-
-            submitBtn.disabled = true;
-            submitBtn.innerText = '正在送出...';
-
-            status.style.display = 'block';
-            status.style.background = 'rgba(14, 165, 233, 0.1)';
-            status.style.color = 'var(--text-dim)';
-            status.innerText = '正在傳送您的訊息，請稍候...';
-
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    status.style.background = 'rgba(16, 185, 129, 0.2)';
-                    status.style.color = '#6ee7b7';
-                    status.innerText = '感謝您的來信！我們已收到您的諮詢，將儘快處理。';
-                    form.reset();
-                    submitBtn.innerText = '送出成功';
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.error || '傳送失敗');
-                }
-            } catch (error) {
-                status.style.background = 'rgba(239, 68, 68, 0.2)';
-                status.style.color = '#fca5a5';
-
-                let errorMsg = error.message;
-                if (errorMsg.includes("isn't set up yet")) {
-                    errorMsg = '表單尚未啟用。請務必至 tmvcserv@tmvc.com.tw 收取 Formspree 的確認信並點擊「Activate Form」按鈕。';
-                }
-
-                status.innerText = '抱歉，發生錯誤：' + errorMsg + '。請稍後再試，或直接來信 tmvcserv@tmvc.com.tw';
-                submitBtn.disabled = false;
-                submitBtn.innerText = '重新送出';
-            }
-        };
-    </script>
 </body>
 
 </html>

@@ -22,6 +22,7 @@
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
@@ -473,11 +474,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+                    <a href="index.html" class="logo">
                         <img src="images/TMVC_Logo.png" alt="天目科技">
                         <span>天目科技</span>
                     </a>
-                    <p style="color: var(--text-gray); max-width: 300px;">
+                    <p>
                         專注於為客戶提供最具競爭力的工業視覺解決方案。
                         <br><br>
                         您的品質，我們的堅持。
@@ -486,19 +487,19 @@
 
                 <div class="footer-col">
                     <h4>快速連結</h4>
-                    <ul style="line-height: 2.2;">
-                        <li><a href="index.html" style="color: var(--text-gray);">首頁</a></li>
-                        <li><a href="about.html" style="color: var(--text-gray);">關於我們</a></li>
-                        <li><a href="products.html" style="color: var(--text-gray);">產品介紹</a></li>
-                        <li><a href="support.html" style="color: var(--text-gray);">技術支援</a></li>
-                        <li><a href="downloads.html" style="color: var(--text-gray);">下載專區</a></li>
-                        <li><a href="contact.html" style="color: var(--text-gray);">客戶服務</a></li>
+                    <ul class="footer-links-grid">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="products.html">產品介紹</a></li>
+                        <li><a href="support.html">技術支援</a></li>
+                        <li><a href="downloads.html">下載專區</a></li>
+                        <li><a href="contact.html">客戶服務</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h4>服務時間</h4>
-                    <p style="color: var(--text-gray); line-height: 2;">
+                    <p>
                         週一至週五<br>
                         09:00 - 18:00<br>
                         (國定假日除外)
@@ -546,62 +547,6 @@
         </div>
     </footer>
 
-    <script>
-        // 主題切換邏輯
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            sessionStorage.setItem('theme', newTheme);
-        });
-
-        // 滾動行為邏輯 (Hide/Show Header)
-        const header = document.getElementById('mainHeader');
-        let lastScroll = 0;
-        const scrollThreshold = 100;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll <= 0) {
-                header.classList.remove('header-hidden');
-                header.classList.remove('header-scrolled');
-                return;
-            }
-
-            if (currentScroll > scrollThreshold) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-
-            if (currentScroll > lastScroll && !document.body.classList.contains('nav-active')) {
-                header.classList.add('header-hidden');
-            } else {
-                header.classList.remove('header-hidden');
-            }
-            lastScroll = currentScroll;
-        });
-
-        // 行動版選單切換
-        const mobileNavToggle = document.getElementById('mobileNavToggle');
-        const navOverlay = document.getElementById('navOverlay');
-        const navLinks = document.querySelectorAll('#navMenu a');
-
-        const toggleNav = () => {
-            document.body.classList.toggle('nav-active');
-        };
-
-        mobileNavToggle.addEventListener('click', toggleNav);
-        navOverlay.addEventListener('click', toggleNav);
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                document.body.classList.remove('nav-active');
-            });
-        });
-    </script>
 </body>
 
 </html>

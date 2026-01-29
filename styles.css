@@ -424,7 +424,8 @@ footer {
 
 @media (max-width: 480px) {
     .footer-links-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 15px;
     }
 }
 
@@ -432,11 +433,15 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
+    font-size: 0.8rem;
+    margin-bottom: var(--space-1);
 }
 
 .contact-list svg {
     flex-shrink: 0;
     color: var(--primary);
+    width: 16px;
+    height: 16px;
 }
 
 .copyright {

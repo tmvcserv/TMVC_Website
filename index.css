@@ -25,7 +25,8 @@
     height: 100%;
     background: url('hero-bg.png') no-repeat center center/cover;
     z-index: -2;
-    filter: brightness(0.8);
+    filter: brightness(0.5);
+    /* Reduced from 0.8 for better contrast */
     animation: kenBurns 20s infinite alternate;
 }
 
@@ -45,9 +46,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, var(--nav-bg), var(--bg-dark));
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), var(--dark-bg));
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .hero-content {
@@ -61,7 +62,7 @@
     margin-bottom: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -73,13 +74,16 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .hero p {
     font-size: 1.25rem;
-    color: var(--text-dim);
+    color: var(--text-light);
     margin-bottom: 3rem;
-    font-weight: 300;
+    font-weight: 400;
+    /* Increased from 300 for better readability */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
@@ -94,6 +98,26 @@
     box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+/* Hero Section - Light Mode Support */
+[data-theme="light"] .hero-bg {
+    filter: brightness(0.95);
+}
+
+[data-theme="light"] .hero-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), var(--dark-bg));
+    opacity: 0.9;
+}
+
+[data-theme="light"] .hero h1 {
+    color: var(--text-light);
+    text-shadow: 0 4px 30px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .hero p {
+    color: var(--text-dim);
+    text-shadow: none;
 }
 
 .btn-primary:hover {

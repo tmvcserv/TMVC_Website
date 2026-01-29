@@ -9,38 +9,81 @@
 }
 
 .software-hero {
-    background: linear-gradient(135deg, var(--sw-bg-dark) 0%, #1e1b4b 100%);
-    padding: 120px 0 80px;
-    text-align: center;
     position: relative;
+    padding: 180px 0 120px;
+    text-align: center;
     overflow: hidden;
+    background: var(--dark-bg);
 }
 
-.software-hero::before {
-    content: '';
+.hero-bg {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('hero-bg.png') center/cover;
-    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    background: url('images/software-hero-bg-v2.png') no-repeat center center/cover;
     z-index: 0;
+    filter: brightness(0.45);
+    animation: kenBurns 20s infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--dark-bg));
+    z-index: 1;
+    opacity: 0.8;
 }
 
 .software-hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .software-hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
-    background: linear-gradient(to right, #fff, #94a3b8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     margin-bottom: 1.5rem;
+    font-weight: 800;
 }
+
+@keyframes kenBurns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Page Hero - Light Mode Support */
+[data-theme="light"] .hero-bg {
+    filter: brightness(0.9) saturate(1.2);
+}
+
+[data-theme="light"] .hero-overlay {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), var(--dark-bg));
+    opacity: 0.9;
+}
+
+[data-theme="light"] .software-hero h1 {
+    color: var(--text-light);
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+[data-theme="light"] .software-hero p {
+    color: var(--text-dim) !important;
+    text-shadow: none !important;
+}
+
 
 .challenge-grid {
     display: grid;

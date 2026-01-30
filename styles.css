@@ -24,6 +24,7 @@
     --glass-border: rgba(255, 255, 255, 0.08);
     --shadow-color: rgba(0, 0, 0, 0.5);
     --input-bg: rgba(15, 23, 42, 0.6);
+    --card-hover-bg: rgba(30, 41, 59, 0.8);
 
     /* 間距階梯 (Spacing Scale) */
     --space-1: 0.5rem;
@@ -59,6 +60,7 @@
     --glass-border: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --input-bg: #ffffff;
+    --card-hover-bg: rgba(15, 23, 42, 0.05);
 }
 
 [data-theme="light"] .btn-secondary {

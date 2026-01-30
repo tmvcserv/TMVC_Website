@@ -100,21 +100,24 @@
 .contact-info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 0;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     position: relative;
     z-index: 10;
 }
 
 .info-card {
-    text-align: center;
-    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 1.5rem;
+    gap: 1.25rem;
     background: var(--nav-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    box-shadow: 0 20px 40px -10px var(--shadow-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -10px var(--shadow-color);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -125,16 +128,16 @@
 }
 
 .info-icon {
-    width: 70px;
-    height: 70px;
+    width: 54px;
+    height: 54px;
     background: rgba(14, 165, 233, 0.1);
     color: var(--accent);
-    border-radius: 18px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 1.75rem;
+    flex-shrink: 0;
+    font-size: 1.4rem;
     border: 1px solid rgba(14, 165, 233, 0.2);
     transition: all 0.3s ease;
 }
@@ -146,14 +149,15 @@
 }
 
 .info-card h3 {
-    margin-bottom: 0.75rem;
-    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
     color: var(--text-light);
 }
 
 .info-card p {
     color: var(--text-dim);
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 /* Support Process */

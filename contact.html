@@ -97,174 +97,113 @@
             </div>
         </section>
 
-        <section class="container">
-            <div class="contact-grid">
-                <!-- Left: Info -->
-                <div class="info-section">
-                    <h2>聯絡資訊</h2>
-                    <p class="info-desc">無論您有產品詢價、技術售服需求或是大型專案整合計畫，我們的專家團隊將為您提供最精準的建議。</p>
+        <section class="contact-main-section">
+            <div class="contact-bg-overlay"></div>
+            <div class="container relative-z">
+                <div class="contact-grid">
+                    <!-- Left: Empty Space -->
+                    <div class="info-placeholder"></div>
 
-                    <div class="contact-card-list">
-                        <div class="contact-card">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="card-content">
-                                <h4>服務專線</h4>
-                                <p>+886-958-629-144</p>
-                            </div>
-                        </div>
+                    <!-- Right: Form -->
+                    <div class="form-section">
+                        <h2>線上諮詢表單</h2>
+                        <p class="form-intro">請填寫以下資訊，我們的專員將會儘速與您聯繫。</p>
+                        <!-- 使用 Formspree 靜態表單服務來發送郵件 -->
+                        <!-- 注意：目前已更換為 Formspree 正式 ID：xaqopqpa 接收郵件 -->
+                        <form id="contactForm" action="https://formspree.io/f/xaqopqpa" method="post">
+                            <!-- 隱藏欄位：自定義郵件主題 -->
+                            <input type="hidden" name="_subject" value="來自TMVC官網的新客戶諮詢">
 
-                        <div class="contact-card">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                    </path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">您的姓名 <span>*</span></label>
+                                    <input type="text" id="name" name="name" required placeholder="請輸入姓名">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">公司名稱 <span>*</span></label>
+                                    <input type="text" id="company" name="company" required placeholder="請輸入公司全銜">
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h4>電子郵件</h4>
-                                <p>tmvcserv@tmvc.com.tw</p>
-                            </div>
-                        </div>
 
-                        <div class="contact-card">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
+                            <div class="form-group">
+                                <label for="email">Email <span>*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="service@example.com">
                             </div>
-                            <div class="card-content">
-                                <h4>公司地址</h4>
-                                <p>新北市中和區板南路671號8樓</p>
-                            </div>
-                        </div>
 
-                        <div class="contact-card">
-                            <div class="icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                            <div class="form-group">
+                                <label for="tel">聯絡電話 <span>*</span></label>
+                                <div class="phone-input-container">
+                                    <select id="country_code" name="country_code" required>
+                                        <option value="+886" selected>(+886) 台灣</option>
+                                        <option value="+86">(+86) 中國</option>
+                                        <option value="+852">(+852) 香港</option>
+                                        <option value="+853">(+853) 澳門</option>
+                                        <option value="+1">(+1) 美國/加拿大</option>
+                                        <option value="+44">(+44) 英國</option>
+                                        <option value="+49">(+49) 德國</option>
+                                        <option value="+60">(+60) 馬來西亞</option>
+                                        <option value="+61">(+61) 澳洲</option>
+                                        <option value="+65">(+65) 新加坡</option>
+                                        <option value="+66">(+66) 泰國</option>
+                                        <option value="+81">(+81) 日本</option>
+                                        <option value="+82">(+82) 韓國</option>
+                                        <option value="+84">(+84) 越南</option>
+                                    </select>
+                                    <input type="tel" id="tel" name="tel" required placeholder="02-12345678">
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h4>服務時間</h4>
-                                <p>週一至週五 09:00 - 18:00</p>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="q_type">問題類型 <span>*</span></label>
+                                    <select id="q_type" name="q_type" required>
+                                        <option value="" disabled selected>請選擇問題類型</option>
+                                        <option value="quote">產品詢價</option>
+                                        <option value="support">技術支援</option>
+                                        <option value="project">專案合作</option>
+                                        <option value="other">其他諮詢</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="p_cat">產品分類 <span>*</span></label>
+                                    <select id="p_cat" name="p_cat" required>
+                                        <option value="" disabled selected>請選擇產品分類</option>
+                                        <!-- <option value="camera">工業相機</option> -->
+                                        <option value="instrument">量測儀器</option>
+                                        <option value="software">AI 影像檢測軟體</option>
+                                        <option value="service">專案設計服務</option>
+                                        <option value="other">其他</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label for="p_model">產品型號 <span>*</span></label>
+                                <input type="text" id="p_model" name="p_model" required
+                                    placeholder="如：TM-5000 / 無則填「N/A」">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">訊息內容 <span>*</span></label>
+                                <textarea id="message" name="message" required
+                                    placeholder="請詳細描述您的需求或遇到的問題..."></textarea>
+                            </div>
+
+                            <div class="privacy-row">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy" class="privacy-text">
+                                    我已閱讀並同意天目科技的隱私權政策，同意將提供之個人資料用於聯絡與業務處理用途。
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">送出諮詢表單</button>
+                            <p class="response-commitment">我們將在 1 個工作天內由專人回覆您的訊息</p>
+
+                            <!-- 提交狀態提示 -->
+                            <div id="formStatus"
+                                style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
+                        </form>
                     </div>
-                </div>
-
-                <!-- Right: Form -->
-                <div class="form-section">
-                    <!-- 使用 Formspree 靜態表單服務來發送郵件 -->
-                    <!-- 注意：目前已更換為 Formspree 正式 ID：xaqopqpa 接收郵件 -->
-                    <form id="contactForm" action="https://formspree.io/f/xaqopqpa" method="post">
-                        <!-- 隱藏欄位：自定義郵件主題 -->
-                        <input type="hidden" name="_subject" value="來自TMVC官網的新客戶諮詢">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">您的姓名 <span>*</span></label>
-                                <input type="text" id="name" name="name" required placeholder="請輸入姓名">
-                            </div>
-                            <div class="form-group">
-                                <label for="company">公司名稱 <span>*</span></label>
-                                <input type="text" id="company" name="company" required placeholder="請輸入公司全銜">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email <span>*</span></label>
-                            <input type="email" id="email" name="email" required placeholder="service@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tel">聯絡電話 <span>*</span></label>
-                            <div class="phone-input-container">
-                                <select id="country_code" name="country_code" required>
-                                    <option value="+886" selected>(+886) 台灣</option>
-                                    <option value="+86">(+86) 中國</option>
-                                    <option value="+852">(+852) 香港</option>
-                                    <option value="+853">(+853) 澳門</option>
-                                    <option value="+1">(+1) 美國/加拿大</option>
-                                    <option value="+44">(+44) 英國</option>
-                                    <option value="+49">(+49) 德國</option>
-                                    <option value="+60">(+60) 馬來西亞</option>
-                                    <option value="+61">(+61) 澳洲</option>
-                                    <option value="+65">(+65) 新加坡</option>
-                                    <option value="+66">(+66) 泰國</option>
-                                    <option value="+81">(+81) 日本</option>
-                                    <option value="+82">(+82) 韓國</option>
-                                    <option value="+84">(+84) 越南</option>
-                                </select>
-                                <input type="tel" id="tel" name="tel" required placeholder="02-12345678">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="q_type">問題類型 <span>*</span></label>
-                                <select id="q_type" name="q_type" required>
-                                    <option value="" disabled selected>請選擇問題類型</option>
-                                    <option value="quote">產品詢價</option>
-                                    <option value="support">技術支援</option>
-                                    <option value="project">專案合作</option>
-                                    <option value="other">其他諮詢</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="p_cat">產品分類 <span>*</span></label>
-                                <select id="p_cat" name="p_cat" required>
-                                    <option value="" disabled selected>請選擇產品分類</option>
-                                    <!-- <option value="camera">工業相機</option> -->
-                                    <option value="instrument">量測儀器</option>
-                                    <option value="software">AI 影像檢測軟體</option>
-                                    <option value="service">專案設計服務</option>
-                                    <option value="other">其他</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="p_model">產品型號 <span>*</span></label>
-                            <input type="text" id="p_model" name="p_model" required placeholder="如：TM-5000 / 無則填「N/A」">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">訊息內容 <span>*</span></label>
-                            <textarea id="message" name="message" required placeholder="請詳細描述您的需求或遇到的問題..."></textarea>
-                        </div>
-
-                        <div class="privacy-row">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <label for="privacy" class="privacy-text">
-                                我已閱讀並同意天目科技的隱私權政策，同意將提供之個人資料用於聯絡與業務處理用途。
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">送出諮詢表單</button>
-                        <p class="response-commitment">我們將在 1 個工作天內由專人回覆您的訊息</p>
-
-                        <!-- 提交狀態提示 -->
-                        <div id="formStatus"
-                            style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
-                    </form>
                 </div>
             </div>
         </section>

@@ -338,6 +338,10 @@ textarea {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
+    .info-placeholder {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
